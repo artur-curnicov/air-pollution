@@ -56,3 +56,16 @@ mat-expansion-panel-header {
   top: 200px;
   right: 15px;
 }
+
+
+.top-polluated {
+  position: absolute;
+  right: 20px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 190px;
+
+  mat-card-title {
+    font-size: 14px;
+  }
+}

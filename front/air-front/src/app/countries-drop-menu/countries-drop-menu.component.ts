@@ -38,6 +38,7 @@ export class CountriesDropMenuComponent implements OnInit {
   public countries: Countries[];
   public pollutionInfo: Pollution[];
   public polluants: Polluants[];
+  private topPolluatedCities: string[];
   public megaPolluant;
   private circlesArr: any[];
   private colors;
@@ -56,7 +57,15 @@ export class CountriesDropMenuComponent implements OnInit {
       so2: '/assets/point7.svg',
     };
     this.countriesService.getPollutionLevels(countryCode).subscribe(megadata => {
+      this.topPolluatedCities = [];
+      console.log('C')
+      console.log(megadata)
       this.drawCircles(megadata);
+      for (let i = 0; i < megadata.length; i++) {
+        this.topPolluatedCities.push(megadata[i].city)
+      }
+      this.topPolluatedCities = [...new Set(this.topPolluatedCities)].slice(0, 3)
+      console.log(this.topPolluatedCities)
     });
     mygeo.then(
       res => {

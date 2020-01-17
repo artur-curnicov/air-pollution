@@ -1,15 +1,25 @@
-<mat-form-field class="dropdown-menu">
-  <mat-label>Countries</mat-label>
-  <mat-select
-    [(ngModel)]="selectedCountry"
-    (selectionChange)="positionOnSelectedCountry()"
-  >
-    <mat-option *ngFor="let country of countries" [value]="country.name">
-      {{ country.name }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
 
+
+<div>
+  <mat-form-field class="dropdown-menu">
+    <mat-label>Countries</mat-label>
+    <mat-select
+      [(ngModel)]="selectedCountry"
+      (selectionChange)="positionOnSelectedCountry()"
+    >
+      <mat-option *ngFor="let country of countries" [value]="country.name">
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-card class="top-polluated">
+    <mat-card-title>Most polluated cities for the selected country</mat-card-title>
+    <mat-card-content *ngFor="let topPolluatedCity of topPolluatedCities">
+      {{ topPolluatedCity }}
+    </mat-card-content>
+  </mat-card>
+</div>
 <!-- <mat-form-field class="dropdown-menu-pol">
   <mat-label>Polluants</mat-label>
   <mat-select
