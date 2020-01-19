@@ -8,12 +8,14 @@ To run back
 
 ```bash
 cd back
+npm install
 npm run start
 ```
 
 To run front
 
 ```bash
+npm install -g @angular/cli
 cd front/air-front
 npm install
 ng serve
